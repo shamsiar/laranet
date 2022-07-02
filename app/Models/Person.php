@@ -42,4 +42,21 @@ class Person extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the Pages .
+     */
+    public function pages()
+    {
+        return $this->hasMany(Page::class);
+    }
+
+    /**
+     * Get the posts.
+     */
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
 }
