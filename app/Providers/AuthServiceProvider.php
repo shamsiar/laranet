@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Extensions\PersonProvider;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,13 +24,5 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
-        Auth::provider('person', function ($app, array $config) {
-            // Return an instance of Illuminate\Contracts\Auth\UserProvider...
-
-            return new PersonProvider($app->make('person.connection'));
-        });
-
-        //
     }
 }
