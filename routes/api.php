@@ -1,8 +1,8 @@
 <?php
-
+use App\Http\Controllers\API\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\API
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,9 +19,9 @@ Route::middleware('auth:sanctum')->get('/person', function (Request $request) {
 });
 
 //API route for register new user
-Route::post('/register', [AuthController::class, 'register']);
+Route::post('/register', [AuthController::class, 'register'])->name('register');
 //API route for login user
-Route::post('/login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 //Protecting Routes
 Route::group(['middleware' => ['auth:sanctum']], function () {
@@ -29,10 +29,10 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     //     return auth()->user();
     // });
 
-    Route::resource('person', 'PersonController');
-    Route::resource('pages', 'PageController');
-    Route::resource('posts', 'PostController');
+    Route::resource('person', App\Http\Controllers\API\PersonController::class);
+    Route::resource('pages', App\Http\Controllers\API\PageController::class);
+    Route::resource('posts', App\Http\Controllers\API\PostController::class);
 
-    // API route for logout user
-    Route::post('/logout', [AuthController::class, 'logout']);
+    // API route for logout person
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });

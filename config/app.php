@@ -175,6 +175,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         PrettyRoutes\ServiceProvider::class,
+        Overtrue\LaravelFollow\FollowServiceProvider::class,
 
     ],
 
