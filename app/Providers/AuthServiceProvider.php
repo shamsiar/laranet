@@ -2,16 +2,15 @@
 
 namespace App\Providers;
 
-use App\Extensions\PersonProvider;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
 {
     /**
      * The policy mappings for the application.
      *
-     * @var array<class-string, class-string>
+     * @var array
      */
     protected $policies = [
         // 'App\Models\Model' => 'App\Policies\ModelPolicy',
@@ -25,12 +24,6 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
-        Auth::provider('person', function ($app, array $config) {
-            // Return an instance of Illuminate\Contracts\Auth\UserProvider...
-
-            return new PersonProvider($app->make('person.connection'));
-        });
 
         //
     }

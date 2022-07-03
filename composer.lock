@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d42b068702b528f75c29acf09d35df27",
+    "content-hash": "dca0864852279e761612730a5cc493be",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -494,6 +494,64 @@
             "time": "2020-12-29T14:50:06+00:00"
         },
         {
+            "name": "fideloper/proxy",
+            "version": "4.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fideloper/TrustedProxy.git",
+                "reference": "c073b2bd04d1c90e04dc1b787662b558dd65ade0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fideloper/TrustedProxy/zipball/c073b2bd04d1c90e04dc1b787662b558dd65ade0",
+                "reference": "c073b2bd04d1c90e04dc1b787662b558dd65ade0",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^5.0|^6.0|^7.0|^8.0|^9.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "illuminate/http": "^5.0|^6.0|^7.0|^8.0|^9.0",
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Fideloper\\Proxy\\TrustedProxyServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Fideloper\\Proxy\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Fidao",
+                    "email": "fideloper@gmail.com"
+                }
+            ],
+            "description": "Set trusted proxies for Laravel",
+            "keywords": [
+                "load balancing",
+                "proxy",
+                "trusted proxy"
+            ],
+            "support": {
+                "issues": "https://github.com/fideloper/TrustedProxy/issues",
+                "source": "https://github.com/fideloper/TrustedProxy/tree/4.4.1"
+            },
+            "time": "2020-10-22T13:48:01+00:00"
+        },
+        {
             "name": "fruitcake/laravel-cors",
             "version": "v2.2.0",
             "source": {
@@ -571,6 +629,53 @@
                 }
             ],
             "time": "2022-02-23T14:25:13+00:00"
+        },
+        {
+            "name": "garygreen/pretty-routes",
+            "version": "1.0.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/garygreen/pretty-routes.git",
+                "reference": "7fa09429416dcceab7fab6b36d7ff57bbcb8b504"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/garygreen/pretty-routes/zipball/7fa09429416dcceab7fab6b36d7ff57bbcb8b504",
+                "reference": "7fa09429416dcceab7fab6b36d7ff57bbcb8b504",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "5.*|6.*|7.*|8.*|^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "PrettyRoutes\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PrettyRoutes\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Gary Green",
+                    "email": "holegary@gmail.com"
+                }
+            ],
+            "description": "Pretty routes for Laravel 5+",
+            "support": {
+                "issues": "https://github.com/garygreen/pretty-routes/issues",
+                "source": "https://github.com/garygreen/pretty-routes/tree/1.0.11"
+            },
+            "time": "2022-02-06T16:45:56+00:00"
         },
         {
             "name": "graham-campbell/result-type",

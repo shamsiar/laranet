@@ -4,9 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-// use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+
+// use Overtrue\LaravelFollow\Traits\Follower;
 
 class Person extends Authenticatable
 {
@@ -42,4 +43,21 @@ class Person extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the Pages .
+     */
+    public function pages()
+    {
+        return $this->hasMany(Page::class);
+    }
+
+    /**
+     * Get the posts.
+     */
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
 }
