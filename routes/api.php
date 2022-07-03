@@ -1,6 +1,12 @@
 <?php
-use App\Http\Controllers\API\AuthController;
-use Illuminate\Http\Request;
+
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\PasswordController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,26 +19,27 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
  */
-
-Route::middleware('auth:sanctum')->get('/person', function (Request $request) {
-    return $request->person();
+/*
+/ Public Routes accessable by guest users
+ */
+Route::middleware('guest')->group(function () {
+    Route::post('/login', [AuthController::class, 'login']);
+    Route::post('/register', RegisterController::class);
+    Route::post('/forgot-password', ForgotPasswordController::class);
+    Route::post('/reset-password', ResetPasswordController::class);
 });
 
-//API route for register new user
-Route::post('/register', [AuthController::class, 'register'])->name('register');
-//API route for login user
-Route::post('/login', [AuthController::class, 'login'])->name('login');
+/**
+ *  To enable email verification following routes need to uncomment
+ */
 
-//Protecting Routes
-Route::group(['middleware' => ['auth:sanctum']], function () {
-    // Route::get('/profile', function (Request $request) {
-    //     return auth()->user();
-    // });
+// Route::post('/verify-email/{id}/{hash}', [VerificationController::class, 'verify'])->name('verify');
+// Route::post('/verify-resend', [VerificationController::class, 'resend']);
 
-    Route::resource('person', App\Http\Controllers\API\PersonController::class);
-    Route::resource('pages', App\Http\Controllers\API\PageController::class);
-    Route::resource('posts', App\Http\Controllers\API\PostController::class);
+Route::middleware('auth:sanctum')->group(function () {
+    Route::patch('/profile', ProfileController::class);
+    Route::patch('/password', PasswordController::class);
 
-    // API route for logout person
-    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::post('/logout', [AuthController::class, 'logout']);
 });
+Route::get('/user', UserController::class);
